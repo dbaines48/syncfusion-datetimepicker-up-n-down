@@ -1,0 +1,70 @@
+/* Add application styles & imports to this file! */
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-areas: '. form .';
+  grid-template-columns: 25fr 50fr 25fr;
+  grid-template-rows: minmax(0, 1fr);
+  height: 100%;
+  border: 1px dashed #c0c0c0;
+  overflow: hidden;
+}
+
+.form-container {
+  grid-area: form;
+  height: 100%;
+  border: 1px dashed #ff0000;
+  overflow: auto;
+  padding: 5px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+.field-group.highlight {
+  background-color: #badfdb;
+}
+
+.field-group + .field-group {
+  margin-top: 15px;
+}
+
+label,
+.label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+input[type='text'][id^='field-'] {
+  border-radius: 5px;
+  border: 1px solid #c0c0c0;
+  height: 30px;
+  padding: 5px 10px;
+}

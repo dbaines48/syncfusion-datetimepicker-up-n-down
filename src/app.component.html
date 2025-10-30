@@ -1,0 +1,45 @@
+<div class="form-grid">
+  <div class="form-container">
+    <!-- Helper Variables -->
+    @let repeatTimes = 10; @let subsequentStartIndex = repeatTimes + 1;
+
+    <!-- Previous fields -->
+    <ng-container *repeatTimes="repeatTimes; let index = index">
+      <ng-container
+        *ngTemplateOutlet="fieldGroup; context: { $implicit: index }"
+      ></ng-container>
+    </ng-container>
+
+    <!-- Syncfusion Date-Time Picker -->
+    <div class="field-group highlight">
+      <div class="label">Date Time Picker</div>
+      <ejs-datetimepicker
+        [format]="dateTimeFormat()"
+        [timeFormat]="timeFormat()"
+        [enableMask]="enableMaskSupport"
+        [maskPlaceholder]="maskPlaceholder"
+      ></ejs-datetimepicker>
+    </div>
+
+    <!-- Subsequent fields -->
+    <ng-container
+      *repeatTimes="
+        repeatTimes;
+        startIndex: subsequentStartIndex;
+        let index = index
+      "
+    >
+      <ng-container
+        *ngTemplateOutlet="fieldGroup; context: { $implicit: index }"
+      ></ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #fieldGroup let-index>
+  <div class="field-group">
+    @let id = `field-${index}`;
+    <label [for]="id">Field {{ index }} (Ignore)</label>
+    <input type="text" [name]="id" [id]="id" />
+  </div>
+</ng-template>
