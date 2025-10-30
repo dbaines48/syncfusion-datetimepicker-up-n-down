@@ -6,7 +6,7 @@
     <!-- Previous fields -->
     <ng-container *repeatTimes="repeatTimes; let index = index">
       <ng-container
-        *ngTemplateOutlet="fieldGroup; context: { $implicit: index }"
+        *ngTemplateOutlet="fieldGroup; context: { $implicit: index, message: 'Scroll down for picker ⬇️' }"
       ></ng-container>
     </ng-container>
 
@@ -30,16 +30,16 @@
       "
     >
       <ng-container
-        *ngTemplateOutlet="fieldGroup; context: { $implicit: index }"
+        *ngTemplateOutlet="fieldGroup; context: { $implicit: index, message: 'Scroll up for picker ⬆️' }"
       ></ng-container>
     </ng-container>
   </div>
 </div>
 
-<ng-template #fieldGroup let-index>
+<ng-template #fieldGroup let-index let-message="message">
   <div class="field-group">
     @let id = `field-${index}`;
-    <label [for]="id">Field {{ index }} (Ignore)</label>
+    <label [for]="id">Field {{ index }} (Ignore) {{ message }}</label>
     <input type="text" [name]="id" [id]="id" />
   </div>
 </ng-template>
